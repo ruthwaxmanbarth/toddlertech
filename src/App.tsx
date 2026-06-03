@@ -215,9 +215,9 @@ function App() {
   }
 
   return (
-    <div className="h-screen bg-slate-900 flex flex-col items-center justify-center overflow-hidden">
+    <div className="min-h-screen bg-slate-900 flex flex-col items-center justify-center overflow-auto">
       {/* Clock Face */}
-      <div className="flex-1 flex items-center justify-center w-full px-4 py-6">
+      <div className="flex items-center justify-center w-full px-4 py-8">
         <ClockFace
           targetEndTime={targetEndTime}
           totalDuration={totalDuration}
@@ -226,7 +226,7 @@ function App() {
       </div>
 
       {/* Controls */}
-      <div className="pb-6 flex flex-col items-center">
+      <div className="pb-8 flex flex-col items-center">
         <TimerControls
           onStartTimer={startTimer}
           onStartTimerUntil={startTimerUntil}

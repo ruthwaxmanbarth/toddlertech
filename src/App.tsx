@@ -40,25 +40,8 @@ function App() {
     return () => clearInterval(interval);
   }, [isRunning, targetEndTime, timerId]);
 
-  // Prevent body scroll on mobile when timer is running
-  useEffect(() => {
-    if (isRunning) {
-      document.body.classList.add('timer-active');
-      document.body.style.top = `-${window.scrollY}px`;
-    } else {
-      const scrollY = document.body.style.top;
-      document.body.classList.remove('timer-active');
-      document.body.style.top = '';
-      if (scrollY) {
-        window.scrollTo(0, parseInt(scrollY || '0') * -1);
-      }
-    }
-
-    return () => {
-      document.body.classList.remove('timer-active');
-      document.body.style.top = '';
-    };
-  }, [isRunning]);
+  // Remove scroll prevention logic - allow scroll at all times
+  // (commented out code that was preventing body scroll when timer running)
 
   const loadActiveTimer = async () => {
     try {
